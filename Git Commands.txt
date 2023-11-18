@@ -3,6 +3,65 @@ Git commands
 git add * - add all files 
 git add -A
 
+git status - show status
+
+git status -s 
+
+git diff HEAD
+
+git diff --staged
+
+git diff master <branch_name>
+
+git difftool
+
+git reset -- hard , git reset --hard<filename>
+
+git revert <commitHash> , get the hash value in git log
+
+git log
+
+git log -p <number of commit>
+
+git show < option> <objects> - to get specific information
+
+Git config
+
+git config -h
+
+three config - locak,global,system
+
+gobal level : global config --gobal --list (./git)
+
+local level : config --local --list
+
+system level : git config --system --list high level : (/etc/.gitconfig) 
+
+
+
+
+
+
+
+git commit -m - add files
+
+git commit -am
+
+git rm - remove file
+
+git rm --cached 
+
+git restored
+
+git mv
+
+git clean -n
+
+git clean -f force 
+
+git clean -x ignore file clean
+
+
 
 git add -u - add currently tracked files which have been modified to the staging area and also check if those are deleted or not 
 
@@ -19,3 +78,287 @@ Dependency directories, such as /vendor or /node_modules
 System files like .DS_Store or Thumbs.db
 
 IDE or text editor configuration files
+
+
+
+Lesson -3 - git repositories
+
+
+repository - local , global/remote, 
+
+
+visibility - public
+
+terminolgy orgin
+
+org/project/master->forking->developer project/master->cloning->git(internet) -<code(local)
+
+
+push and pull
+-------------
+
+local ->push/pull<-remote
+
+clone
+-----
+fetch and merger
+---------------
+
+origin/master
+
+git pull <remote>
+git fetch <remote>
+gti merge origin/<current-branch>
+
+intro to github
+----------------
+
+*features
+
+Working with github
+create new repository
+
+create a new repository on the command line
+echo "# gitrepo" >> README.md
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin https://github.com/sakthisathya9515/gitrepo.git
+  git push -u origin main
+
+
+push an existing repository from the command line
+
+git remote add origin https://github.com/sakthisathya9515/gitrepo.git
+  git branch -M main
+  git push -u origin master
+
+
+Config SSH key
+
+
+Add key to the SSH-agent
+
+
+
+Check/Run SSH-agent in
+background
+
+$ eval "S (ssh-agent -s) "
+
+Add key to SSH-agent
+
+$ ssh-add ~/.ssh/id_cd25519
+
+Check the SSH connection
+
+$ ssh -T git@github.com
+
+
+create Github account
+
+push pull
+
+
+  git push -u origin master
+
+git push
+git pull
+git fetch
+-------
+get fetch URL
+git fetch <branch URL>
+git merge FETCH_HEAD
+git fetch -all
+
+
+git pull
+--------
+
+git pull origin master
+git pull --all
+git pull
+
+clone
+-----
+git clone URL
+git clone -n <brtanch name> <URL>
+git clone https
+
+
+git pull repo name to get the lastest version of repository
+
+git checkout
+
+connect with remote server
+
+git remote add origin <servername>
+
+git remote -v
+
+delete branch
+--------------
+git branch -d branch name - delete in local
+git branch -D branch name - both remoete and local
+git push origin --delete branch name - only in branch
+
+work withn remote repo
+----------------------
+
+git remote remove
+git remote -v
+git remote rename  <old> <new>
+
+-- track
+<remcte-repository>/<remote-branch>
+
+git. checkout
+
+To create a local branch with the same name as
+the remote branch
+
+git checkout -- track -b <local branch>
+<remote-repository>/<remote-branch>
+
+To create a local branch with different name from
+remote branch
+
+git branch -vv
+
+To verify tracking branches
+
+git branch -- v
+
+To see latest commits, commits information and
+head pointer related information
+
+
+fork a remote repo
+
+fork repo into github account - github repo fork <public repo>
+for github repo and clone to local - github repo fork <public repo> --clone
+
+
+To add a remote upstream repo
+
+git remote add upstream https://Gitlub.com/MyGITProject/Commerce-DevOps.git
+
+To
+take update from
+public repository
+also
+
+Tc
+synchronization
+from public
+repository
+
+clone vs fork
+
+we can clone the repo and push and pull in clone 
+
+in fork there is no access , so we need to fork and push and pull to work from fork
+
+git vs                github
+
+software              service
+
+CLI                    GUI
+
+linux                  microsoft
+
+Version control        code host platform
+
+no user manag          built-in user
+
+
+Working with git hub repo
+-------------------------
+
+add readme
+add .gitignore with coding language
+license
+
+
+
+Lesson -4 life cycle of git
+
+git file states
+
+untraked->staged->committed-> modified
+
+HEAD
+
+git show HEAD - recent updated branch lastest commit
+
+cat .git/HEAD
+
+Working on the file in staging area
+
+git status
+
+git status -s
+
+check file status
+
+git diff HEAD
+git diff --summary
+
+to mve stagging area
+
+git add and so on
+
+
+STAGING TO LOCAL REPO
+
+git commit
+
+git commit "message"
+
+BBYPASS STAGING
+
+git commit -a
+
+git commit -am
+
+REVERTING COMMIT AND CHANGING
+
+revert the commit - git revert
+
+git revert <hash>
+
+git revert <commit-id>
+
+REVERT MERGE
+
+main commit and merge commit
+
+git revert <commit reference> -m 1 = -m1 is used for the first parent
+
+
+RESET FLAG
+
+HEAD ->master->file
+
+git reset --main/dontcheckmain.txt
+
+git reset file.txt
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
