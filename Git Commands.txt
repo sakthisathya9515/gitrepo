@@ -1,0 +1,21 @@
+Git commands
+
+git add * - add all files 
+git add -A
+
+
+git add -u - add currently tracked files which have been modified to the staging area and also check if those are deleted or not 
+
+Add such file to a file .gitignore
+
+Runtime files such as log, lock, cache, or temporary files.
+
+Files with sensitive information, such as configuration files passwords or API keys
+
+Compiled code, such as .class, jar files, .o, so files
+
+Dependency directories, such as /vendor or /node_modules
+
+System files like .DS_Store or Thumbs.db
+
+IDE or text editor configuration files
