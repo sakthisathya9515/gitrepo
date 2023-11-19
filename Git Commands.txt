@@ -341,22 +341,288 @@ RESET FLAG
 
 HEAD ->master->file
 
-git reset --main/dontcheckmain.txt
+git reset --main/dontcheckmain.txt - specific file
 
-git reset file.txt
+git reset file.txt 
 
-
-
-
+reset flags - --soft,--hard,--hard
 
 
+soft reset - Staging Index and the working
+are left untouched
+
+hard - all change are completly removed
+
+mixed -hard+soft not reset from working dir
+
+use case
+
+git reset --soft HEAD - commit will cancel and moved before HEAD
 
 
+reset comparison
 
 
+Reset Comparison
+                    HEAD Staging/Index  Working directory
+  
+                     HEAD   Index            Workdir      DirectorySafe?
+Commit Level
+reset soft [commit]   REF    NO                NO             YES
+reset [commit]        REF    YES               NO              YES
+reset -hard [commit]  REF    YES              YES              NO
+checkout <commit>     HEAD   YES              YES             YES
+File Level
+reset [commit] <paths> NO     YES             NO              YES
+checkout [commit] <paths>NO   YES             YES              NO
 
 
+understanding ^(caret) and ~(tilde)
+
+HEAD~n or HEAD^n - commit before HEAD (HEAD~2) parent-parent
+
+	
+
+ GIT INTERNALS
+
+git OBJECTS
+
+repo - object
+
+BLOB- the content of files are stores in objects (Binary large object)
+secured
+evry blob in git is identified by SHA -1 hash
+
+Tree - dir struct
+refers to blobs 
+SHA -1
+
+commit - snapshot 
+
+HEAD points to latest commit branch
+commit is snap
+every commit holds entire snp
+
+data stored in git
+
+tree ->readme and rakefile ->blob
+tree ->lib->tree->simple.rb
+
+git lifecycle demo
+
+create rep , add , commit ,restore ,reset hard (done)
+
+
+Lesson 5 : Git Barnching 
+
+we can have dev branch and master branch which is production server branch
+
+git branch
+git branch --list
+
+SWITCH BRANCH
+
+git checkout
+git checkout test
+git brach -m master rename 
+git checkout -b feauture to create and switch from feature branch
+
+
+remove brach in remote
+
+git push origin --delete <old branch>
+git push -u origin <new-name>
+
+BRANCH TRACKING
+
+git branch -u
+git branch -vv
+git push -u origin <local-branch>
+
+git branch --track <new branch> origin/base-branch - proper track
+
+git checkout --track origin/<base-bran>s - track and communicate with branch
+
+git branch -vv helps to visualize tracking related info
+
+delete branch
+
+-d - safe
+-D - force
+git branch -d my-new-branch
+
+in REMOTE
+
+git push origin --delete <branch-name>
+
+DIFF btw branch
+
+git diff branch name
+
+Push and commit changes
+
+git push origin <branchname>
+
+TYPES oF BRANCH
+
+Features branch
+
+master branch
  
+develop branch(intergration)
+
+release branch
+
+hotfix branch
+
+1 MASTER
+
+default branch 
+
+2 FEATURE
+
+multiple features
+bugfix
+new few
+intergera with dev
+
+3 REALESE
+
+final branch
+once dev complete then realease
+only release branch is connect with master
+
+4 HOTFIX
+add a critile fix
+merge with master
+if issue in production env and want to avoid the full cycle of dev
+
+
+5 .DEVELOPE AND INTERGARTIOn
+
+used for develop
+develope intgerate with master
+
+
+DEMO
+
+
+
+GIT MERGE
+
+
+git merge <branch-name>
+
+check the avaiable log in the develop branch
+
+git checkout master
+make master branch as current branch
+
+git merge develop
+merge the branch into master
+
+Types of merge 
+
+Two way fast forward - develop to master (ex : feature f1 snaphot compare to master m1)
+three way - (ex: feature f3 and master m4 snap will comapare with master m3(ancestor) ) - somtime it make conflicts
+
+MERGE CONFLICT
+
+
+During the integration of different feature
+branches into the develop branch may
+cause conflicts
+
+RESOLVE
+
+Open the conflicted file and make the necessary changes
+
+Use git add command to stage the newly merged content
+
+Perform a new commit using git commit command
+
+Git creates a new merge commit to finally complete the merge
+
+
+commands
+
+git log --merge    To generate a list of conflicting commitments
+git diff           To identify differences between repositories or files
+git checkout       To reverse the file changes or to change branches
+git reset --mixed  To undo changes in the working directory and screen
+git merge --abort  To exit the merge and return to the state before the merging starts
+git reset          To reset the disputed files
+
+MEREGETOOLS
+
+git mergetool
+
+MEREG DEMO
+
+git merge in no fast forward
+
+git merge develop --no--ff
+
+MERGE STRATIGIES
+
+recurisive -default
+resove - 3 way merge   git merge -s resolve br1 br2
+octopus -2 barch                 -s octopus b1 b2 b3 b4 b5
+ours -                            -s ours b1 b2 b3 b4
+all change from branch is ignore and master will be considered (does not consider the changes from feature branch in cases of conflict and uses our changes)
+subtree -                       -s subtree b1 b2 b3 b4
+used for merging tree which have common ancestor 
+A and B - merge A and B (only have common ancestor)
+
+RESOLVE MEREGE CONFLICTS
+ 
+DEMO
+
+REBABSE
+rebese is a single "patch" for all changes 
+git rebase <branch-name>
+
+
+Clean history 
+easy to manipulate any commit
+avoid merging noise
+cleans intermindiate
+multiple commits
+
+REBASING DEMO
+rebase must done in master branch
+
+
+IDE WITH GITHUB
+---------------
+
+LESSON 6 GIT WITH IDE
+
+git extension pack with vscode
+
+git lense
+gitignore
+
+INTELLIJ IDE
+------------
+
+Chain code completion
+static member completion
+detect duplication
+insepc and quick file
+
+DEMO
+
+
+
+
+
+
+
+
+
+
+
 
 
 
